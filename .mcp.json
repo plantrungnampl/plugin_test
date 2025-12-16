@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "aspnet-webforms-tools": {
+      "command": "node",
+      "args": ["C:\\tools\\index.js"],
+      "env": {},
+      "description": "Custom tools for ASP.NET Web Forms development"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "aspnet-webforms-plugin",
+  "description": "Elite ASP.NET Web Forms development plugin with Oracle/SQL Server integration, system design expertise, and ultra-think capabilities",
+  "version": "1.0.0",
+  "author": {
+    "name": "antrungnam",
+    "email": "antrungnam1234@gmail.com"
+  },
+  "agents": [
+    "./agents/aspnet-webforms-expert.md"
+  ],
+  "skills": [
+    "./skills/aspnet-webforms-senior/SKILL.md",
+    "./skills/ultra-think/SKILL.md"
+  ],
+  "mcpServers": "./mcp.json",
+  "keywords": [
+    "asp.net",
+    "webforms",
+    "oracle",
+    "legacy",
+    "enterprise",
+    "system-design"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/aspnet-webforms-plugin"
+  }
+}
