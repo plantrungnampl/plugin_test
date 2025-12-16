@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "aspnet-webforms-plugin",
-      "source": ".",
+      "source": "./",
       "description": "Elite ASP.NET Web Forms development with Oracle/SQL Server integration",
       "version": "1.0.0",
       "strict": true
