@@ -2,13 +2,13 @@
   "name": "aspnet-webforms-marketplace",
   "owner": {
     "name": "antrungnam",
-    "url": "https://github.com/yourusername"
+    "url": "https://github.com/plantrungnampl"
   },
   "description": "ASP.NET Web Forms development tools and expertise",
   "plugins": [
     {
       "name": "aspnet-webforms-plugin",
-      "source": "https://github.com/yourusername/aspnet-webforms-plugin",
+      "source": ".",
       "description": "Elite ASP.NET Web Forms development with Oracle/SQL Server integration",
       "version": "1.0.0",
       "strict": true
