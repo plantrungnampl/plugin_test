@@ -1,10 +1,23 @@
 {
   "mcpServers": {
+    "oracle-database": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-server/oracle-mcp.js"],
+      "env": {
+        "ORACLE_CLIENT_DIR": "${ORACLE_CLIENT_DIR}",
+        "ORACLE_USER": "${ORACLE_USER}",
+        "ORACLE_PASSWORD": "${ORACLE_PASSWORD}",
+        "ORACLE_CONNECT_STRING": "${ORACLE_CONNECT_STRING}"
+      },
+      "description": "Oracle Database tools - query, schema, list tables",
+      "disabled": false
+    },
     "aspnet-webforms-tools": {
       "command": "node",
-      "args": ["C:\\tools\\index.js"],
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-server/webforms-tools.js"],
       "env": {},
-      "description": "Custom tools for ASP.NET Web Forms development"
+      "description": "ASP.NET WebForms analysis - ViewState, SQL injection, postback",
+      "disabled": false
     }
   }
 }

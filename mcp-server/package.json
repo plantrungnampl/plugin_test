@@ -1,0 +1,20 @@
+{
+  "name": "mcp-server",
+  "version": "1.0.0",
+  "description": "oracle MCP server",
+  "keywords": [
+    "MCP",
+    "oracle"
+  ],
+  "license": "ISC",
+  "author": "antrungnam",
+  "type": "module",
+  "main": "oracle-mcp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.0",
+    "oracledb": "^6.10.0"
+  }
+}
