@@ -22,8 +22,5 @@
     "enterprise",
     "system-design"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/plantrungnampl/plugin_test"
-  }
+ "repository": "https://github.com/plantrungnampl/plugin_test"
 }
