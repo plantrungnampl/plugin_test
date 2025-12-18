@@ -7,97 +7,107 @@ aspnet-webforms-plugin/
 ├── .claude-plugin/
 │   └── plugin.json              # Plugin metadata
 ├── agents/
-│   └── aspnet-webforms-expert.md  # Expert agent definition
+│   ├── task-orchestrator.md     # 🎯 Request router (haiku)
+│   ├── repo-scout.md            # 🔍 File explorer (haiku)
+│   ├── webforms-architect.md    # 🧠 System designer (opus)
+│   ├── webforms-quick-dev.md    # ⚡ Quick fixes (haiku)
+│   ├── aspnet-webforms-expert.md # 💻 Full implementation (sonnet)
+│   └── code-reviewer.md         # ✅ Quality gate (sonnet)
 ├── skills/
 │   ├── aspnet-webforms-senior/
-│   │   └── SKILL.md             # ⚠️ Cần thêm nội dung
-│   └── ultra-think/
-│       └── SKILL.md             # ⚠️ Cần thêm nội dung
+│   │   └── SKILL.md             # WebForms expertise
+│   ├── ultra-think/
+│   │   └── SKILL.md             # Deep analysis framework
+│   └── search-patterns/
+│       └── SKILL.md             # Search pattern library
 ├── .mcp.json                    # MCP server config
 ├── .gitignore
 ├── README.md                    # Main documentation
 ├── SETUP.md                     # Installation guide
 ├── CHANGELOG.md                 # Version history
-└── marketplace-example.json     # Marketplace config
+└── OVERVIEW.md                  # This file
+```
+
+## 🤖 Agent Hierarchy
+
+```mermaid
+graph TB
+    subgraph "🎯 ORCHESTRATION"
+        O[task-orchestrator<br/>haiku • Router]
+    end
+    
+    subgraph "🔍 DISCOVERY"
+        S[repo-scout<br/>haiku • Explorer]
+    end
+    
+    subgraph "🧠 PLANNING"
+        A[webforms-architect<br/>opus • Strategist]
+    end
+    
+    subgraph "💻 EXECUTION"
+        E[aspnet-webforms-expert<br/>sonnet • Full Dev]
+        Q[webforms-quick-dev<br/>haiku • Quick Fix]
+    end
+    
+    subgraph "✅ VERIFICATION"
+        R[code-reviewer<br/>sonnet • Quality Gate]
+    end
+    
+    O -->|"find files"| S
+    O -->|"complex design"| A
+    O -->|"implement"| E
+    O -->|"quick fix"| Q
+    O -->|"review"| R
+    
+    S -.->|"context"| A
+    S -.->|"context"| E
+    A -.->|"plan"| E
+    E -.->|"review"| R
+    Q -.->|"review"| R
+```
+
+## 🎯 Agent Selection Guide
+
+| Request Type | Agent | Model | Speed |
+|--------------|-------|-------|-------|
+| Find files, audit codebase | `repo-scout` | haiku | ⚡⚡⚡ |
+| Simple fix (< 50 lines) | `webforms-quick-dev` | haiku | ⚡⚡⚡ |
+| Full implementation | `aspnet-webforms-expert` | sonnet | ⚡⚡ |
+| Architecture, migration | `webforms-architect` | opus | ⚡ |
+| Code review, security audit | `code-reviewer` | sonnet | ⚡⚡ |
+| Unknown/complex request | `task-orchestrator` | haiku | ⚡⚡⚡ |
+
+### Decision Tree
+
+```
+User Request
+    │
+    ├─ "Find/Search/List files" ──────────► repo-scout
+    │
+    ├─ "Add button/Fix typo/Simple" ──────► webforms-quick-dev
+    │
+    ├─ "Deep Analysis/Migration/Design" ──► webforms-architect
+    │
+    ├─ "Review/Audit/Check security" ─────► code-reviewer
+    │
+    ├─ "Create page/Implement feature" ───► aspnet-webforms-expert
+    │
+    └─ Unclear/Complex ───────────────────► task-orchestrator
 ```
 
 ## ✅ Đã hoàn thành
 
 - ✅ Plugin structure chuẩn Claude Code
-- ✅ Agent definition với frontmatter đúng format
+- ✅ 6 agents với vai trò chuyên biệt
+- ✅ 3 skills với nội dung chi tiết
+- ✅ Agent hierarchy và routing logic
 - ✅ MCP server configuration
 - ✅ Documentation đầy đủ
 - ✅ Setup guides cho Windows/Linux/Mac
-- ✅ Example configurations
-
-## ⚠️ Cần bổ sung
-
-### 1. Skills Content (QUAN TRỌNG)
-
-Bạn cần thêm nội dung cho 2 skills:
-
-#### `skills/aspnet-webforms-senior/SKILL.md`
-- Copy từ file skill gốc `/mnt/skills/user/aspnet-webforms-senior/SKILL.md`
-- Hoặc tạo mới với nội dung về:
-  - WebForms architecture patterns
-  - Oracle/SQL Server best practices
-  - ViewState & performance optimization
-  - Security patterns
-  - Legacy code modernization
-
-#### `skills/ultra-think/SKILL.md`
-- Copy từ file skill gốc ultra-think
-- Hoặc implement 10-step analysis framework:
-  1. Parse Problem
-  2. Multi-Dimensional Analysis
-  3. Generate Solutions
-  4. Deep Dive
-  5. Cross-Domain Thinking
-  6. Challenge & Refine
-  7. Synthesize
-  8. Recommendations
-  9. Alternatives
-  10. Meta-Analysis
-
-### 2. MCP Server Path
-
-Kiểm tra và update path trong `.mcp.json` nếu cần:
-```json
-{
-  "mcpServers": {
-    "aspnet-webforms-tools": {
-      "command": "node",
-      "args": ["C:\\tools\\index.js"]  // ← Update path này
-    }
-  }
-}
-```
-
-### 3. Author Information
-
-Update trong `plugin.json` và `README.md`:
-- Email address
-- GitHub username
-- Repository URL
 
 ## 🚀 Quick Start
 
-### 1. Hoàn thiện nội dung
-
-```bash
-# 1. Thêm skills content
-# Edit: skills/aspnet-webforms-senior/SKILL.md
-# Edit: skills/ultra-think/SKILL.md
-
-# 2. Update MCP server path
-# Edit: .mcp.json
-
-# 3. Update author info
-# Edit: .claude-plugin/plugin.json
-# Edit: README.md
-```
-
-### 2. Test local
+### 1. Test local
 
 ```bash
 # Windows
@@ -109,6 +119,48 @@ cp -r aspnet-webforms-plugin ~/.claude/plugins/
 # Test
 claude
 /plugin list
+```
+
+### 2. Usage Examples
+
+#### Example 1: File Discovery
+```
+User: "Find all files using Oracle connections"
+
+Agent: repo-scout (haiku)
+→ Fast search, returns file list
+```
+
+#### Example 2: Quick Fix
+```
+User: "Add a required validator to the username textbox"
+
+Agent: webforms-quick-dev (haiku)
+→ Quick implementation, < 2 minutes
+```
+
+#### Example 3: Full Feature
+```
+User: "Create a new employee management page with CRUD"
+
+Agent: aspnet-webforms-expert (sonnet)
+→ Full implementation with context awareness
+```
+
+#### Example 4: Deep Analysis
+```
+User: "Deep Analysis: Should we migrate from Oracle to SQL Server?"
+
+Agent: webforms-architect (opus) + ultra-think skill
+→ 10-step analysis with multiple solutions
+```
+
+#### Example 5: Security Review
+```
+User: "Review Login.aspx.cs for security vulnerabilities"
+
+Agent: code-reviewer (sonnet)
+→ Structured security audit with recommendations
 ```
 
 ### 3. Publish (optional)

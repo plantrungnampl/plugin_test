@@ -1,7 +1,6 @@
 ---
 name: ultra-think
 description: 10-step deep analysis framework for complex problems requiring multi-dimensional thinking, trade-off analysis, and strategic decision-making. Activates on "Deep Analysis", "System Design", or "Migration Strategy" requests.
-version: 1.0.0
 ---
 
 # Deep Analysis and Problem Solving Mode
@@ -257,7 +256,3 @@ When analyzing WebForms-specific scenarios, Ultra-Think considers:
 - Incremental refactoring strategies
 - Hybrid architecture options
 - Team capability constraints
-
----
-
-**Note**: Ultra-Think mode produces thorough analysis that may take longer to generate. The depth of analysis ensures better decision-making for complex, high-stakes scenarios.
