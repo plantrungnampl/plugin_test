@@ -92,8 +92,57 @@ User Request
     │
     ├─ "Create page/Implement feature" ───► aspnet-webforms-expert
     │
+    ├─ "Continue/Làm tiếp đi" ────────────► aspnet-webforms-expert (TODO mode)
+    │
     └─ Unclear/Complex ───────────────────► task-orchestrator
 ```
+
+## 📋 Standard Workflow (TODO.md-based)
+
+For complex tasks, agents follow this workflow:
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Orchestrator as task-orchestrator
+    participant Architect as webforms-architect
+    participant Expert as aspnet-webforms-expert
+    participant Scout as repo-scout
+    
+    User->>Orchestrator: "Deep Analysis: Fix security issues"
+    Orchestrator->>Architect: Route to planning
+    Architect->>Scout: "Get security audit"
+    Scout-->>Architect: Report findings
+    Architect->>Architect: Create TODO.md
+    Architect-->>User: "Plan ready. Say 'làm tiếp đi'"
+    
+    User->>Orchestrator: "làm tiếp đi"
+    Orchestrator->>Expert: Route to execution
+    Expert->>Expert: Read TODO.md
+    loop For each task
+        Expert->>Expert: Implement task
+        Expert->>Expert: Mark [x] done
+    end
+    Expert-->>User: "All tasks completed"
+```
+
+### Agent Roles in Workflow
+
+| Agent | Role | TODO.md Access |
+|-------|------|----------------|
+| `task-orchestrator` | Router | ❌ None |
+| `webforms-architect` | Creates TODO.md | ✍️ Write only |
+| `aspnet-webforms-expert` | Executes tasks | ✅ Read + Update |
+| `repo-scout` | Provides reports | ❌ None |
+| `code-reviewer` | Provides reports | ❌ None |
+
+### Trigger Phrases
+
+| Phrase | Action |
+|--------|--------|
+| "Deep Analysis: ..." | → Architect creates TODO.md |
+| "làm tiếp đi" / "continue" | → Expert executes TODO.md |
+| "làm hết" | → Expert executes ALL remaining tasks |
 
 ## ✅ Đã hoàn thành
 

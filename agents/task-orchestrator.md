@@ -38,10 +38,16 @@ You are a smart **Task Router**. Your job is to analyze incoming requests and de
   - "Rename this variable"
 
 ### Route to `aspnet-webforms-expert` (sonnet) when:
+- **User confirms execution**: "y", "yes", "ok", "go ahead"
+- **User wants to continue previous work**: "làm tiếp đi", "continue", "tiếp tục", "execute the plan"
+- **TODO.md exists**: Agent will read and execute pending tasks
 - Full feature implementation needed
 - Task requires understanding of project context
 - Multiple files need modification
 - Examples:
+  - "y" or "yes" (after architect asks) ← **Priority trigger**
+  - "Continue the implementation" ← **Priority trigger**
+  - "làm tiếp đi" ← **Priority trigger**
   - "Create a new user management page"
   - "Implement CRUD for products"
   - "Refactor this module with proper error handling"
